@@ -43,7 +43,7 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__email_address = ext.ExtStringField(
             label=u'Email address',
-            name='email_address',
+            name='email',
             anchor='100%'
         )
 
@@ -54,7 +54,7 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__is_stuff = ext.ExtCheckBox(
             label=u'Staff status',
-            name='is_stuff',
+            name='is_staff',
         )
 
         self.field__is_active = ext.ExtCheckBox(
@@ -101,54 +101,4 @@ class UserAddWindow(BaseEditWindow):
         :params: Словарь с параметрами, передается из пака
         """
         super(UserAddWindow, self).set_params(params)
-        self.height = 'auto'
-
-
-class PermissionWindow(BaseEditWindow):
-    """
-    Созданное окно для работы с пользователем
-    """
-    def _init_components(self):
-        """
-        Здесь следует инициализировать компоненты окна и складывать их в
-        :attr:`self`.
-        """
-        super(PermissionWindow, self)._init_components()
-
-        self.field__name = ext.ExtDictionaryWindow(
-            label=u'name',
-            name='name',
-            anchor='100%'
-        )
-
-        self.field__content_type = ext.ExtDictSelectField(
-            label=u'content_type',
-            name='content_type',
-            anchor='100%'
-        )
-
-        self.field__codename = ext.ExtStringField(
-            label=u'codename',
-            name='codename',
-            anchor='100%'
-        )
-
-    def _do_layout(self):
-        """
-        Здесь размещаем компоненты в окне
-        """
-        super(PermissionWindow, self)._do_layout()
-        self.form.items.extend((
-            self.field__name,
-            self.field__content_type,
-            self.field__codename
-        ))
-
-    def set_params(self, params):
-        """
-        Установка параметров окна
-
-        :params: Словарь с параметрами, передается из пака
-        """
-        super(PermissionWindow, self).set_params(params)
         self.height = 'auto'
