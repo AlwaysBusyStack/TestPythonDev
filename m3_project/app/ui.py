@@ -1,5 +1,3 @@
-import objectpack.models
-from m3_ext.ui.fields import ExtDictSelectField
 from objectpack.ui import BaseEditWindow
 from m3_ext.ui import all_components as ext
 
